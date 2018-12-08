@@ -41,7 +41,7 @@ WHERE area=1 AND class=1;
 
 SELECT DISTINCT phone_number.level, phone_number.phone_number
 FROM phone_number INNER JOIN room ON phone_number.level = room.level
-WHERE area=2 AND class=2
+WHERE area=2 AND class=2;
 
 SELECT DISTINCT phone_number.level, phone_number.phone_number
 FROM phone_number INNER JOIN room ON phone_number.level = room.level
