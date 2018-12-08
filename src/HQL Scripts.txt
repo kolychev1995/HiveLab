@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS price;
+CREATE EXTERNAL TABLE PRICE (
+  area tinyint, 
+  class tinyint,
+  price smallint
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
+LOCATION '/user/hive/warehouse/price/';
+
+DROP TABLE IF EXISTS room;
+CREATE EXTERNAL TABLE ROOM (
+  level tinyint, 
+  area tinyint,
+  class tinyint,
+  quantity smallint,
+  quantity_taken_room smallint 
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
+LOCATION '/user/hive/warehouse/room/';
+
+drop TABLE IF EXISTS PHONE_NUMBER;
+CREATE EXTERNAL TABLE PHONE_NUMBER (
+  level tinyint, 
+  phone_number int,
+  admin_name string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
+LOCATION '/user/hive/warehouse/phone_number/';

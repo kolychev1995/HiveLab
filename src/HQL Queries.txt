@@ -1,0 +1,48 @@
+SELECT *
+FROM price
+WHERE area=2;
+
+SELECT phone_number, admin_name
+FROM phone_number
+WHERE level=1;
+
+SELECT level, quantity
+FROM room
+WHERE area = 1 and class = 1;
+
+SELECT DISTINCT phone_number.admin_name, phone_number.phone_number 
+FROM phone_number INNER JOIN room ON phone_number.level = room.level
+WHERE room.area = 1 And room.quantity > room.quantity_taken_room;
+
+SELECT DISTINCT phone_number.admin_name, phone_number.phone_number 
+FROM phone_number INNER JOIN room ON phone_number.level = room.level
+WHERE room.area = 2 And (room.quantity - room.quantity_taken_room) > 9;
+
+SELECT DISTINCT phone_number.admin_name, phone_number.phone_number 
+FROM phone_number INNER JOIN room ON phone_number.level = room.level
+WHERE room.area = 3 And room.quantity = (
+select max(quantity)
+from room
+where area = 3
+);
+
+SELECT area, class, Sum(quantity-quantity_taken_room) AS free_room
+FROM room
+GROUP BY area, class;
+
+SELECT level, class, SUM(quantity) AS some_class_room
+FROM room
+WHERE class=1
+GROUP BY level, class;
+
+SELECT DISTINCT phone_number.level, phone_number.phone_number
+FROM phone_number INNER JOIN room ON phone_number.level = room.level
+WHERE area=1 AND class=1;
+
+SELECT DISTINCT phone_number.level, phone_number.phone_number
+FROM phone_number INNER JOIN room ON phone_number.level = room.level
+WHERE area=2 AND class=2
+
+SELECT DISTINCT phone_number.level, phone_number.phone_number
+FROM phone_number INNER JOIN room ON phone_number.level = room.level
+WHERE area=3 AND (class=2 OR class=3);

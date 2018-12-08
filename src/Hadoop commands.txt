@@ -1,0 +1,11 @@
+hadoop fs -mkdir /user/hive/warehouse/price/
+
+hadoop fs -copyFromLocal /home/cloudera/Desktop/price /user/hive/warehouse/price/
+
+hadoop fs -mkdir /user/hive/warehouse/room/
+
+hadoop fs -copyFromLocal /home/cloudera/Desktop/room /user/hive/warehouse/room/
+
+hadoop fs -mkdir /user/hive/warehouse/phone_number/
+
+hadoop fs -copyFromLocal /home/cloudera/Desktop/phone_number /user/hive/warehouse/phone_number/
